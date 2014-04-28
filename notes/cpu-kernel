@@ -1,0 +1,83 @@
+cpu-kernel
+
+#platform setting up
+ * *Install Bochs*
+ 	* *Download Link* http://bochs.sourceforge.net
+	* *Command*:
+	cd bochs
+	./configure --enable-debugger --enable-disasm
+	sudo make -j4 && sudo make install
+	
+ * *First Boot.bin*
+ 	* *Boot Code* boot.asm
+	sudo apt-get install nasm
+	nasm boot.asm -o boot.bin
+	
+	* *Make 1.4M floppy*
+	1. Use bximg tool from bochs.
+	2. dd if=/dev/zero of=a.img size=1k count=1440
+
+	* *edit bochsrc and boot from bochs*
+
+	* *Or We Can boot From freedos*
+
+#Bootloader
+ * DONE *Nasm 用法*
+ 逆向代码使用ndisasm指令，但是！这远不如lst文件好用
+nasm -f bin gdt.asm -o 31.com -l 31.lst
+ org 0100h作用是将本文件内的所有使用的基址都以100h为基础做偏移
+ nasm使用数种数据格式:
+ mov ax,100		10进制
+ mov ax,0100h	16进制
+ mov ax,$0100	16进制，仅这个prefix 0是需要的
+ mov ax,0x100	16进制
+ mov ax,100b	bit
+ mov ax,77q		8进制
+
+ [bit 16] 本段的操作数默认以16进制处理，比如push 0,两个字节而不
+是4个自己。如果操作32位指令，nasm会在汇编中 prefix 66
+ [section S16] 仅在段前增加00 00,不影响数据逻辑。
+
+ EQU 指令: 不会汇编进文件中
+
+ DIV 指令:
+ 	如果是8位除法，al=商,ah=余
+ 	如果是16位除法，ax=商，dx=余数
+
+ * DONE *中断* 
+ Int 10中断:
+ 	AH功能号0x13为显示字符串
+	AL鼠标跟随模式，0不动，1跟随
+	BL位颜色 0C 黑底红字，高字节为底，低字节为颜色
+	ES|BP 串地址
+	CX = 串长度
+	DH DL 起始行±列
+
+ Int 13中断: 读数据到 es|bx
+ ch:柱面号 cl:起始扇区
+ dh:磁道号 dl:光驱 (A盘为0)
+ ah:2(读)  al:要读取的扇区数
+ 
+
+#Cpu Loader
+ Boot.bin 加载loader.bin,因为Boot.bin只有512个字节不能完成主要
+功能。Loader.bin 打开分页 进入保护模式 开启中断，加载elf格式
+kernel。
+ Boot.bin以及loader同属于实模式，实模式的特点是,访问空间最大只
+有1MB，通过ds:offset 共同完成,ds*10h + offset.
+ *Boot.bin* org 7c00
+ *Loader* org 100h 这一点很重要,
+
+Loader.asm编译的时候死活没加载kernel.bin
+发现地址没改,应改为BaseOfKernel的地址
+
+调用inc里的函数 死活没调用上,bochs调试时发现汇编指令不对,应该是32位的指令
+结果都是16位的.
+%include "lib.inc" 应该放在 [BITS 32]位之后
+[SECTION ]应该只是一个表示符而已.
+
+*4-18 bug* wrong physical addr
+发现在设置页表的时候,页表属性没有加上,造成错误
+CR3 保存着页表的基址, CR0保存
+
+*第五章 完善kernel模块*

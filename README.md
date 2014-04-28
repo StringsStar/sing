@@ -1,4 +1,0 @@
-sing
-====
-
-singsing project

@@ -1,0 +1,64 @@
+use-linux
+
+主要使用的工具是: 浏览器 , gvim , shell , 因此这三个工具的键盘
+使用就会得非常重要都他妈怪windows的长期使用留下来的坏习惯。
+截图工具: sudo ksnapshot
+查看图片工具: eog gimp(专业的)
+二进制工具: bless
+加密工具: ccrypt
+# source.list
+deb http://mirrors.oschina.net/linuxmint/ maya main upstream import
+deb http://mirrors.oschina.net/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-backports main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-security main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-updates main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu/ precise partner
+
+# 浏览器:
+ * DONE 浏览器的选择
+ 使用Firefox而不是Chrominum，因为linux下firefox的Bug比chrome少
+的多并且tab放大支持
+字体放大哈哈哈。
+
+ * DONE 浏览器的快捷键
+ Alt+1~8 依次表达浏览器的标签页
+ Alt+9   跳转到最后一个标签页
+ Alt+D	 跳转到地址栏
+ Ctrl+Tab 下个标签
+ Ctrl+Shift+Tab 上一个标签
+
+
+# gvim
+ * DONE Best Fucking Editor
+ * DONE 空间坐标调整
+ 设置窗口坐标	winpos 600 50
+ 设置窗口长和宽	set lines=35 columns=10
+
+ * DONE *笔记本编辑设置*
+ 标志结尾行 set colorcolumn=95
+ 设置最大长度 set textwidth=63
+ > 自动换行的干活
+
+ * 匹配内容写入文件
+         :redir > ./all_matches.txt
+        :silent g/regex/
+        :redir END
+现在all_matches.txt 中就是符合正则表达式的行了, 略有遗憾的是, 前面会有两个空行, 不过你很可能并不在意。
+2. 利用寄存器先收集, 再保存
+
+        :let @a=""
+        :g/regex/y A
+        :new
+        "ap
+
+# gnome shell
+ * DONE *常用命令*
+ 新建tab	ctrl+Shift+Tab
+ tab切换 	alt+1 ~~ Alt+8  
+>> (like Fire Fox)
+
+# Using Firefox
+2-sm5pa-w777c-mzx4t-e3bcy-g7qkm
+
+

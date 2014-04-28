@@ -1,0 +1,103 @@
+//第一个成就 杀进前一万名 77题
+//第1.1个成就 9000 -》 8000 -》 7000 -》 6000 -》 5000
+//第二个成就 杀进5000名 150题
+//第三个成就 杀进1000名 410题
+//3-31
+//Add 1877 1939 2006 2013
+1750 
+2006 太他妈操蛋了，浪费了数个小时还是列错了方程
+2363 pass 不会
+find . "*.cpp" | xargs cat | wc -l
+find . -mtime -1 -name "*.cpp" | xargs cat | wc -l
+查看最近一天所写的代码
+查看所有文件行数
+//一个AP 多个Reader返回数据的情况
+2014-4-1 第一个成就达成 rank 9979 77题
+下一个目标 杀进9000名
+tips: 一直在做水题的话，会失去斗志，因为似乎在做没有意义的事情。
+减少水题，增加有意义的题目。
+每天最少一道DP 动态规划，一道搜索
+最少15道水题。
+2014-4-3
+DP收割题目
+OK	1014* Dividing    半个背包，注意中断，否则可能TLE
+OK	1036 Gangsters 可以很水的DP过，还有多种优化的方法
+OK	1050 To the Max最大子矩形  枚举每个列数为n的矩阵，然后对这些矩阵分别进行DP处理
+OK	1088滑雪  记忆化DP
+OK	2663 To Max Tile
+1080 Human Gene Functions  最长公共子序列拓展，此题不连续，注意初始化
+1038* Bugs Integrated, Inc.状态压缩
+1141* Brackets Sequence括号序列 经典区间DP
+1157 LITTLE SHOP OF FLOWERS  注意边界初始化
+1159* Palindrome 15000+ 
+1170 Shopping Offers 1600
+1191棋盘分割        3000+
+1276 Cash Machine 多重水背包
+1322 Chocolate  1800+
+ d1458 Common Subsequence 
+1661 Help Jimmy 2400+
+1745 Divisibility 
+1770 Special Experiment 500+
+1828 Monkeys' Pride 2600+
+1836 Alignment 2个LIS
+1837 Balance
+1848* Tree 1000+
+1862 Stripies 水题
+1925* Spiderman
+1946* Cow Cycling
+1948 Triangular Pastures
+1952 BUY LOW, BUY LOWER 求最长下降序列的个数
+1985 Cow Marathon
+2057* The Lost House
+2137 Cowties
+2181 Jumping Cows
+2184 Cow Exhibition Accept
+2192 Zipper
+2231 Moo Volume
+2241 The Tower of Babylon
+2250 Compromise
+2264 Advanced Fruits
+2287* Tian Ji -- The Horse Racing （greed）
+2353 Ministry
+2385 Apple Catching
+2392 Space Elevator
+2404 Jogging Trails
+2411 Mondriaan's Dream Accept
+2475* Any fool can do it
+2479 Maximum sum 2串子段和 
+2486* Apple Tree
+2559* Largest Rectangle in a Histogram
+2593 Max Sequence Accept  （题目描述再次有误...）
+2663 Tri Tiling
+2677* Tour双调欧几里德TSP
+2726 Holiday Hotel
+2817* WordStack
+2923 Relocation
+2938* Economic Phone Calls
+2948 Martian Mining
+3036 Honeycomb Walk
+3042 Grazing on the Run
+3046 Ant Counting
+3088 Push Botton Lock
+3132 Sum of Different Primes
+3133* Manhattan Wiring插头dp
+3140 Contestants Division
+3171 Cleaning Shifts
+3184 Finicky Grazers
+3186 Treats for the Cows
+3211 Washing Clothes
+3230 Travel
+3254 Corn Fields
+3257 Cow Roller Coaster
+3265 Problem Solving
+3267 The Cow Lexicon
+3272 Cow Traffic
+3298 Antimonotonicity
+3342 Party at Hali-Bula
+3345 Bribing FIPA
+3356 AGTC
+3459 Projects
+3519 Minimal Backgammon
+3616 Milking Time
+3638 Moogle
+3666 Making the Grade

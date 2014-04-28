@@ -2,4 +2,4 @@
 *.o
 *.bin
 *.pyc
-bochsout.txt
+bochsout.*

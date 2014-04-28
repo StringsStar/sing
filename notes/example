@@ -2,6 +2,25 @@ example
 读入缓冲区的字符串,然后进行排序.
 tr ' ' '\n' | grep -v "^$" | sort | uniq -c
 
+撤销git commit的操作,完全回退到某个版本
 git reset --hard <comit_id>
+(--soft)	
 git push origin HEAD --force
 
+撤销git add操作
+git rm --cached *
+
+cut属于awk的一个精简版本,默认以<TAB>为分隔符
+awk '{print $1,$NF}'
+grep指令查找对应的行
+
+tr指令字符串替换和删除
+//简单加密
+tr 'a-z' 'qazwsxysakdjflkasdasadf' < file_a | tee file_b
+//防止字符串不匹配时的:
+tr -t 'a-z' '012' < file_a
+//大小写转换
+tr 'a-zA-Z' 'A-Za-z' < file_a
+
+tr -s ' ' ' ' //缩减空格
+tr -s '\n' '\n'  多个回车缩减为一行

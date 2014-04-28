@@ -1,5 +1,5 @@
 *.img
-*.o
-*.bin
 *.pyc
+*.bin
+*.o
 bochsout.*

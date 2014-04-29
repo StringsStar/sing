@@ -4,22 +4,22 @@ set nocompatible
 filetype off
 
 set backspace=indent,eol,start
-
+"set tags=~/codecow/sing/cpu-kernel/tags
 "preference {
 set guifont=DejaVu\ Sans\ Mono\ 12
 set guioptions-=m	"隐藏gvim菜单和工具栏
 set guioptions-=T
-set columns=95
+set columns=80
 set go-=r	"去除左右两边的滚动条
 set go-=L
 "}
 
 "tab setting {
-set formatoptions=tcmM
-set nowrap
-set colorcolumn=63
-set textwidth=63
-"set wrap
+"set formatoptions=tcmM
+"set nowrap
+"set colorcolumn=75
+"set textwidth=75
+set wrap
 set conceallevel=3
 set cindent
 set shiftwidth=2 "设置indent为2 代替原来的8
@@ -95,14 +95,16 @@ Bundle 'Valloric/youCompleteMe'
 	nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
   let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
   let g:ycm_add_preview_to_completeopt = 0
+  let g:ycm_collect_identifiers_from_tags_files=0
+  "载入extra_conf不用确认,extra_conf是跟它当前路径相关的
+  let g:ycm_confirm_extra_conf = 0
 	"{ Fix Tab Key Error With UltiSnippets
 	"let g:ycm_key_list_select_completion=['<C-Tab>','<Down>']
 	"let g:SuperTabDefaultCompletionType = '<C-Tab>'
 	"}
 
-	"let g:ycm_global_ycm_extra_conf = '~/.ycm_c_conf.py'
-	let g:ycm_global_ycm_extra_conf = '~/.ycm_cpp_conf.py'
-	let g:ycm_confirm_extra_conf = 0
+"	let g:ycm_global_ycm_extra_conf = '~/.ycm_c_conf.py'
+"	let g:ycm_global_ycm_extra_conf = '~/.ycm_cpp_conf.py'
 
 "Bundle 'Lokaltog/powerline'
   "python from powerline.vim import setup as powerline_setup
@@ -127,7 +129,7 @@ Bundle 'StringsStar/ConqueShell'
 Bundle 'StringsStar/vim-colors-solarized'
 
 Bundle 'StringsStar/vim-notes'
-	let g:notes_directories=['~/notes']
+	let g:notes_directories=['~/codecow/sing/notes']
 	"let g:notes_suffix='.txt'
 Bundle 'StringsStar/vim-misc'
 

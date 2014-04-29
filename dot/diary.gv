@@ -1,7 +1,7 @@
 digraph diary {
 	ranksep=.50; size="7.5,7.5"; rankdir=LR; bgcolor=black;
-	node [shape=plaintext fontcolor=red]
-	day001[label="04-28", style=bold]
+	node [shape=plaintext fontcolor=red] /*comment*
+	day001[label="04-28", style=bold]	//
 	day002[label="04-29", style=bold]
 	day003[label="04-30", style=bold]
 	day007[label="05-04", style=bold]

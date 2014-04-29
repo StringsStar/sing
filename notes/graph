@@ -1,0 +1,13 @@
+graph
+
+# 利用dot语言来绘图的工具,非常强大
+dot -Tpng -o unix.png unix.gv
+
+*every week*
+# Work Coding --> Wtl 
+# 脚本系列 Python sample (IDA script) (dot lan)--> graphviz做总结
+# 操作系统内核 Cpu kernel --> linux code graphviz 做总结
+# android reverse --> 
+
+pydoc -p 1234
+

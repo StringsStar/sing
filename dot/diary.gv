@@ -1,0 +1,35 @@
+digraph diary {
+	ranksep=.50; size="7.5,7.5"; rankdir=LR; bgcolor=black;
+	node [shape=plaintext fontcolor=red]
+	day001[label="04-28", style=bold]
+	day002[label="04-29", style=bold]
+	day003[label="04-30", style=bold]
+	day007[label="05-04", style=bold]
+
+	node [fontcolor=green]
+	day004[label="05-01", style=bold]
+	day005[label="05-02", style=bold]
+	day006[label="05-03", style=bold]
+
+	day001 -> day002 -> day003 -> day004 -> day005 -> day006
+	-> day007;
+	
+	node [shape=box ,  stype=filled , color=DarkGreen, fontcolor=red]
+	node [fontcolor=Red]
+	iss1_plan [label="1.cpu进程调度\n,系统调用,键盘处理\n2.2.4G学生卡WTL代码重写\n3.IDA终于要开动了\n4.script脚本不能停"]
+	{rank=same; day001; iss1_plan; }
+
+	node [fontcolor=Green]
+	iss2_rev [label="nothing"]
+
+	node [fontcolor=blue]
+	iss2_script [ label="python 系统调用\n,时间py,文件遍历\n修改系统时间"]
+
+	node [fontcolor=yellow]
+	iss2_cpu [label="双进程完成\n历史性时刻\n==linux1991_0.01ver"]
+
+	node [fontcolor=Red]
+	iss2_work [label="nothing"]
+	
+	{rank=same; day002; iss2_work; iss2_rev; iss2_script; iss2_cpu;}
+}

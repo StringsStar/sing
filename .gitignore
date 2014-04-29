@@ -2,4 +2,5 @@
 *.pyc
 *.bin
 *.o
+*.png
 bochsout.*

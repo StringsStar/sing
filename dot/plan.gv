@@ -1,0 +1,9 @@
+digraph plan {
+  ranksep=.50; size = "16, 16";
+  node [shape=plaintext, fontsize=12];
+  { "04-28" -> "04-29" -> "05-12" -> "05-19" -> "05-26" -> "06-01"; }
+
+  {rank=same;"04-28";"Work Code";"script";"cpu-kernel";"reverse";}
+  {rank=same;"04-29";"wtl";"python <list file>; <system time>";
+	"进程第\n六章"}
+}

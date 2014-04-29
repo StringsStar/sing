@@ -1,4 +1,7 @@
 use-linux
+# 最厌恶的事情最先做,不要等到受难的时候再做应对.
+# Bill Gates: 聪明人就是能对当前的情况,预测所有以后的可能.
+# 天才理论: 任何事情的fatal内容,就是找到逻辑组织的各个框架,然后一一击破之.
 
 主要使用的工具是: 浏览器 , gvim , shell , 因此这三个工具的键盘
 使用就会得非常重要都他妈怪windows的长期使用留下来的坏习惯。
@@ -6,6 +9,8 @@ use-linux
 查看图片工具: eog gimp(专业的)
 二进制工具: bless
 加密工具: ccrypt
+他妈的: graph-easy	画图片文字的
+graphviz 画流程图的`
 # source.list
 deb http://mirrors.oschina.net/linuxmint/ maya main upstream import
 deb http://mirrors.oschina.net/ubuntu/ precise main restricted universe multiverse

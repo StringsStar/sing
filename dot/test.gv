@@ -1,0 +1,8 @@
+digraph test {
+  	node [color=Red,shape=box]
+	edge [color=Blue, style=dashed]
+	Tea -> {Deputy1 Deputy2 Deputy3}
+
+	node [color=DarkGreen, shape=ellipse]
+	Deputy1 -> {Nice1 Nice2 Nice3}
+}

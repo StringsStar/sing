@@ -1,0 +1,93 @@
+chap 1 Setting for the Mint
+/*kasdjlfasjdfkjsad*/
+me 1: change the softwaret update source
+deb ftp://mirrors.ustc.edu.cn/linuxmint/ maya main upstream import
+deb http://mirrors.163.com/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-security main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu/ precise partner
+deb http://packages.medibuntu.org/ precise free non-free
+
+chap 2 Linux MakeFile study 
+
+chap 3 Build Android Souce Code
+me 1:Install JDK1.6
+
+me 2:Install lib
+apt-get install git-core gnupg flex bison gperf zip curl zlib1g-dev libc6-dev libncurses5-dev x11proto-core-dev libx11-dev libreadline6-dev libgl1-mesa-dev tofrodos python-markdown libxml2-utils xsltproc libreadline6-dev:i386 libgl1-mesa-glx:i386 zlib1g-dev:i386 libx11-dev:i386
+
+me 3:Choose gcc-4.4 replace of gcc
+apt-get install gcc-4.4-multilib
+apt-get install g++-4.4-multilib
+update alternative --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 60
+update alternative --configure gcc  //use this to choose gcc version
+
+me 4:Important Android Open Source Project With Android
+android_system_core: Include adb fastboot superuser mkbootimg
+https://github.com/CyanogenMod/android_system_core  
+
+android_system_extras: include make_ext4fs simg2img tools
+https://github.com/CyanogenMod/android_system_extras
+
+dexandroid : The extension to Android Open Source Project include dexopt
+svn checkout http://dexandroid.googlecode.com/svn/trunk/ dexandroid-read-only
+chap 4 Flash Android Zip
+adb push update.zip /sdcard/
+me 1. 备份msg 电话
+cd /data/data/com.android.provider.telephony/databases
+mmssms.db
+telephony.db
+cp mmssms.db /sdcard
+
+me 2. 备份联系人
+cd /data/data/com.android.provider.contacts/databases
+cp contacts2.db /sdcard/
+chmod 660
+
+me 3. 恢复联系人
+adb recovery
+mount /data
+mount /sdcard
+
+chap 5 Shell Coding
+
+chap 6 修改用户名，新的目录
+usermod -l new_name old_name
+usermod -l delta -m -d /home/delta sigma
+cat /etc/hosts 修改host对应目录
+cat /etc/hostname 修改hostname
+
+修改groupname
+sudo vipw 里修改，然后界面就会更新了
+
+chap 7 直接拷贝操作系统完成，他妈的太爽了
+me 1 : 拷贝文件
+mount /dev/sdb4 /mnt/src
+mount /dev/sda4 /mnt/dist
+cp -afv /mnt/src /mnt/dist
+
+me 2 : 第二步，修复系统初始化文件映射
+cat /etc/fstab
+替换UUID 查看UUID的方法: ls -l /dev/disk/by-uuid
+更简便的查看UUID的方法:blkid
+
+me 3 : 第三步，重新安装grub
+sudo mount /dev/sda4 /mnt
+
+
+sudo mount --bind /dev /mnt/dev && sudo mount --bind /dev/pts /mnt/dev/pts && sudo mount --bind /proc /mnt/proc && sudo mount --bind /sys /mnt/sys
+
+sudo chroot /mnt
+
+grub-install /dev/sda
+
+grub-install --recheck /dev/sda
+
+update-grub
+
+exit && sudo umount /mnt/dev && sudo umount /mnt/dev/pts && sudo umount /mnt/proc && sudo umount /mnt/sys && sudo umount /mnt
+
+chap 8 安装mp3 为Gnome添加最大最小按钮
+gnome-tweak-tool 里可以设置最大最小
+
+deadbeef.sourceforge.net

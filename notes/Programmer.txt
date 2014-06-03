@@ -1,0 +1,57 @@
+chap 1 : API文档
+
+chap 2 : Vim
+me 1:Copy选项
+copy from clipboard to vim
+Ctrl+Shift+v
+
+copy from vim to vim
+"*y 使用Y寄存器
+
+copy from vim to clipboard
+"+y 使用+寄存器
+
+
+chap 3 : 认识API
+重要的项目: man-pages
+git clone http://git.kernel.org/pub/scm/docs/man-pages/man-pages
+
+chap 4 : web git
+me 1 : Install PHP5 And Apache
+
+git clone git://git.kernel.org/pub/scm/git/git.git
+
+me 2 : 编译并且安装
+cd git
+make GITWEB_PROJECTROOT="/git/codecow" prefix=/usr gitweb
+sudo cp -Rf gitweb /var/www/
+
+me 3 : Add VirtualHost To /etc/apache2/sites-available/default or httpd.conf
+<VirtualHost *:80>
+    ServerName gitserver
+    DocumentRoot /var/www/gitweb
+    <Directory /var/www/gitweb>
+        Options ExecCGI +FollowSymLinks +SymLinksIfOwnerMatch
+        AllowOverride All
+        order allow,deny
+        Allow from all
+        AddHandler cgi-script cgi
+        DirectoryIndex gitweb.cgi
+    </Directory>
+</VirtualHost>
+
+sudo service apache2 restart
+
+me 4 : 有个简便的方法
+git instaweb
+git instaweb --stop
+apt-get install lighttpd (轻量级的Shell)
+
+me 5: htaccess Enable的方法
+/etc/apache2/site-available/default  Direcotry (AllowOverride All)
+
+me 5: 设置git通过proxy访问外网服务器
+使用GoAgent的本地代理 export http_proxy=http://127.0.0.1:8087
+git clone http://git.github.com/StringsStar/A  就可以访问了
+
+写入/etc/profile 将会对所有用户生效

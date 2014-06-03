@@ -1,0 +1,44 @@
+ware 10.1
+5F29M-48312-8ZDF9-A8A5K-2AM0Z 
+/*aksdjkfsajdf*/
+Dim Screen 
+cat /etc/default/grub
+GRUB_CMDLINE_LINUX="acpi_backlight=vendor"
+sudo update-grub
+
+Gnome3
+sudo add-apt-repository ppa:gnome3-team/gnome3-staging
+sudo add-apt-repository ppa:gnome3-team/gnome3
+sudo apt-get update
+sudo apt-get install gnome-shell gnome-shell-extensions gnome-tweak-tool
+
+ShuRuFa
+sudo add-apt-repository ppa:fcitx-team/nightly
+sudo apt-get update
+
+fcitx , sogou , google
+   sudo apt-get install fcitx fcitx-config-gtk fcitx-sunpinyin fcitx-googlepinyin fcitx-module-cloudpinyin  fcitx-sogoupinyin
+
+    sudo apt-get install fcitx-table-all
+
+    im-switch -s fcitx -z default
+
+
+chap 1 设置Git服务器
+me 1 安装gitosis
+apt-get install python-setuptools
+git clone https://github.com/res0nat0r/gitosis
+sudo python setup.py install
+
+ln -s /git /home/sigma/repositories
+
+me 2 安装ssh server 
+apt-get install openssh-server
+
+me 3 设置key启动
+sudo -H -u delta gitosis-init < ~/.ssh/id_rsa.pub
+sudo chmod 755 /git/git.git/gitosis-admin.git/hooks/post-update
+
+me 4 可以登陆使用了
+git clone delta@K29:star-project.git
+

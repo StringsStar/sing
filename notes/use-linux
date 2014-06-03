@@ -1,8 +1,11 @@
 use-linux
-# 最厌恶的事情最先做,不要等到受难的时候再做应对.
-# Bill Gates: 聪明人就是能对当前的情况,预测所有以后的可能.
-# 天才理论: 任何事情的fatal内容,就是找到逻辑组织的各个框架,然后一一击破之.
+# 最厌恶的事情最先做,不要等到受难的时候再做应对.  
+# Bill Gates: 聪明人就是能对当前的情况,预测所有以后的可能.  # 天才理论: 任何事情的fatal内容,就是找到逻辑组织的各个框架,然后一一击破之.
 
+Most Important Tools:
+Build: gVim gdb git
+Script: python bash makefile
+Tool: sed awk
 主要使用的工具是: 浏览器 , gvim , shell , 因此这三个工具的键盘
 使用就会得非常重要都他妈怪windows的长期使用留下来的坏习惯。
 截图工具: sudo ksnapshot
@@ -11,14 +14,7 @@ use-linux
 加密工具: ccrypt
 他妈的: graph-easy	画图片文字的
 graphviz 画流程图的`
-# source.list
-deb http://mirrors.oschina.net/linuxmint/ maya main upstream import
-deb http://mirrors.oschina.net/ubuntu/ precise main restricted universe multiverse
-deb http://mirrors.oschina.net/ubuntu/ precise-backports main restricted universe multiverse
-deb http://mirrors.oschina.net/ubuntu/ precise-proposed main restricted universe multiverse
-deb http://mirrors.oschina.net/ubuntu/ precise-security main restricted universe multiverse
-deb http://mirrors.oschina.net/ubuntu/ precise-updates main restricted universe multiverse
-deb http://archive.canonical.com/ubuntu/ precise partner
+
 
 # 浏览器:
  * DONE 浏览器的选择
@@ -66,4 +62,204 @@ deb http://archive.canonical.com/ubuntu/ precise partner
 # Using Firefox
 2-sm5pa-w777c-mzx4t-e3bcy-g7qkm
 
+# Install Linux Mint liucheng
+1. Install git (sing.git vim74.git)
 
+2. Set source.list And update
+deb http://mirrors.oschina.net/linuxmint/ maya main upstream import
+deb http://mirrors.oschina.net/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-backports main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-security main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-updates main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu/ precise partner
+
+3. Install gvim
+sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial
+
+cd vim
+./configure --with-features=huge \
+            --enable-rubyinterp \
+            --enable-pythoninterp \
+            --with-python-config-dir=/usr/lib/python2.7-config \
+            --enable-perlinterp \
+            --enable-luainterp \
+            --enable-gui=gnome2 --enable-cscope --prefix=/usr
+make -j4 VIMRUNTIMEDIR=/usr/share/vim/vim74
+sudo make install
+
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+sudo update-alternatives --set editor /usr/bin/vim
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
+sudo update-alternatives --set vi /usr/bin/vim
+
+Vundle -> BundleInstall
+build-essential python-dev
+youCompleteMe: ./install.sh --clang-completer
+
+4. /etc/default/grub	quiet splash nomodeset acpi_backlight=vendor
+sudo update-grub
+
+5. Install virtual-box bochs genymotion
+
+6. compile android
+
+Debian version:
+quiet spash acpi_backlight=verndor
+ZiTi:
+dpkg-reconfigure locals (install zh_CN GB2312 zhCN_UTF-8)
+SUDO:
+apt-get install sudo
+gedit /etc/sudoers   r ALL=(ALL) ALL
+
+VirtualBox:
+apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') virtualbox (4.1.18)
+
+Compile Android:
+1. Install jdk
+sudo apt-get install openjdk-7-jdk
+
+2. Install required packages.
+sudo apt-get install git gnupg flex bison gperf build-essential \
+  zip curl libc6-dev  x11proto-core-dev \
+    libgl1-mesa-dev g++-multilib mingw32 tofrodos \
+  python-markdown libxml2-utils xsltproc zlib1g-dev:i386 libncurses5-dev:i386 libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \
+
+sudo apt-get install libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5
+
+Lower gcc && g++ version :
+sudo apt-get install gcc-4.4 g++-4.4
+
+eos:
+1.
+deb http://mirrors.oschina.net/linuxmint/ maya main upstream import
+deb http://mirrors.oschina.net/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-backports main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-security main restricted universe multiverse
+deb http://mirrors.oschina.net/ubuntu/ precise-updates main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu/ precise partner
+
+2. Install gvim
+sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial build-essential git nasm \
+gawk cmake gtk2-engines-pixbuf
+# 會提示找不到pixmap引擎
+
+./configure --with-features=huge \
+            --enable-rubyinterp \
+            --enable-pythoninterp \
+            --with-python-config-dir=/usr/lib/python2.7-config \
+            --enable-perlinterp \
+            --enable-luainterp \
+            --enable-gui=gnome2 --enable-cscope --prefix=/usr
+
+make -j4 VIMRUNTIMEDIR=/usr/share/vim/vim74
+sudo make install
+
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+sudo update-alternatives --set editor /usr/bin/vim
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
+sudo update-alternatives --set vi /usr/bin/vim
+
+YouCompleteMe ./install.sh --clang-completer
+
+4. /etc/default/grub	quiet splash nomodeset acpi_backlight=vendor
+sudo update-grub
+
+5. Preference
+sudo add-apt-repository ppa:versable/elementary-update
+elementary-tweaks
+
+sudo apt-get install xbacklight
+xbacklight = 40%
+
+sudo add-apt-repository ppa:simpleyyt/ppa
+launcher-manager
+
+sudo apt-get install wingpanel-slim indicator-synapse
+
+sudo add-apt-repository ppa:fsvh/pacifica-icon-theme
+sudo apt-get install pacifica-icon-theme elementary-plank-themes elementary-wallpaper-collection
+
+usr/share/themes/elementary/gtk-3.0/app.css
+line 167 176 177 0.7->0.0
+pkill wingpanel
+
+6. sudo apt-get install netcat ssh openssh-client
+sudo apt-get install python-setuptools
+sh -qTfnN -D 1080 kensh@s2.91ssh.org -p 8080
+easy_install django
+
+7 shurufa
+sudo add-apt-repository ppa:fcitx-team/nightly
+
+sudo add-apt-repository ppa:ubuntu-wine/ppa
+sudo apt-get install wine1.7
+
+#term支持256色
+sudo apt-get install ncurses-terms
+---> /usr/share/terminfo/x/xterm+256color
+export TERM=xterm+256color
+
+8: desktop
+sudo apt-get install --no-install-recommends nautilus
+sudo apt-get install dconf-tools
+nautilus -n
+dconf-editor org->gnome->nautilus->preferences->desktop-is-home-dir
+org-gnome-desktop-background-show-desktop-irons
+gedit 	~/.config/user-dirs.dirs
+BDG_DESKTOP_DIR="$HOME/desktop"
+
+
+Install DeepIn:
+n-ui：http://packages.linuxdeepin.com/deepin/pool/main/d/deepin-ui/ (选择对应的最新版本，32位系统下载带i386的，64位系统下载带amd64的) 
+deepin-media-player：http://packages.linuxdeepin.com/deepin/pool/main/d/deepin-media-player/ (选择最新的即可，不区分32位和64位) 
+deepin-music-player：http://packages.linuxdeepin.com/deepin/pool/main/d/deepin-music-player/ (选择最新的即可，不区分32位和64位) 
+然后安装下载的deb包，可以双击安装，但是一定要先安装deepin-ui；也可以使用dpkg安装，可以将三个deb包放到一个文件夹，然后在终端中进入该文件夹，运行如下命令：
+sudo dpkg -i deepin-*.deb
+
+sudo apt-get -f installX
+
+VirtualBox 高级玩法:
+ （硬件要求：双核CPU 支持VT－X     内存>2G bois,打开vt-x enable）
+    要命的什么qq飞信，在linux下运行超级不稳定，但是工作又要在linux下作，，，，，于是想能不能在linux下启动我装在另一个分区的windows。。。我说的是直接启动硬盘的。。。
+
+前一段时间看见我对桌那英国哥在linux下用virtualbox虚拟windows，但不幸的是他把windows分区整整的转换成了一个镜像文件（用过vmware的人都懂，vmware虚拟机使用的磁盘是个虚拟文件）。虽然可以用，但有点小不爽，毕竟windows还在那，你做的任何修改仅仅会在镜像上而不是在那个真实的windows硬盘分区上，并且创建这个镜像又要吃掉40-50g的硬盘空间，要知道办公室的电脑硬盘超级小还本身就双系统（什么matlab，office，vstudio。。。。无比大的说）。
+
+于是各种research，什么系统启动结构，什么mbr什么bcd ntld，，，，grub等等，总结这么个方法，这个办法同样使用VirtualBox，可以做到在win上直接运行本机硬盘的linux，相反也可以做到在linux上运行本机的windows， 不用创建镜像文件，省事，省地。（创建镜像要2-3小时，数十g一个文件。。。）这个感觉就像你有两台电脑，互相远程桌面。假如你在linux下虚拟的win创建了个文件，那么下次你去直接启动原生win，他就有了。当然运行windows可以在linux选择Virtualbox的seamless模式，让那个程序看起来和原生linux程序一样，比wine模拟的windows环境强800倍。
+
+具体办法  安装virtualbox......
+下载地址 https://www.virtualbox.org/wiki/Linux_Downloads
+没有源的自己加下，用ubuntu的可以直接在软件中心装oracle VM VirtualBox
+命令行下：sudo apt-get install virtualbox
+下载deb包的，用鼠标把deb拉入终端
+用 sudo dpkg -i  virtualbox.deb    
+提示缺少依赖的话
+sudo apt-get -f install   解决
+安装后在terminal终端模式 用root权限的运行virtualbox
+sudo virtualbox
+不用root会出错。 配置一个windows的运行环境, 想要什么样的自己设定。
+
+接下来做硬盘vmdk文件创建，这里直接创建整个硬盘的映射文件。创建单个分区的比较麻烦，又要提取mbr，又要修改bcd，而且还造成虚拟机能运行，原生启动错误的问题。
+
+创建前请分配所有硬盘分区的读写权限，假如有三个 sda1 sda2 sda3 那么命令行下
+
+sudo chmod 666 /dev/sda1              ＃ 终端用sudo chmod 666 /dev/sda  即可
+sudo chmod 666 /dev/sda2
+sudo chmod 666 /dev/sda3   更多以此类推，两块盘以上的一样，无非是sdb sdc,,,,,等
+
+使用如下指令创建 wmdk 硬盘的映射文件，这里用到的是Virtualbox的shell模式，更多内容请参看virtualbox高级用户手册
+
+sudo vboxmanage internalcommands createrawvmdk -filename /home/用户名/rawdisk.vmdk -rawdisk /dev/sda -relative
+
+用户名替换成自己的登录id， 这样rawdisk.vmdk就可以被Virtualbox（root权限下的）直接调用并且运行windows了。多个硬盘的请分别创建镜像，都加到Virtualbox的ATA管理器里面。
+vbox挂载虚拟光盘/usr/share/virtualbox/VBoxGuestAdditions.iso,在vbox中的WIN安装增强，实现无缝模式。第一次进入硬盘上的windows会安装虚拟驱动，但无需担心实机进win时驱动是否改变，一切如旧。
+注意的是尽量不要在两个系统分区互读写文件，否则后果自负。
+
+在windows下运行物理磁盘的linux，请安装windows的VirtualBox，同样办法创建映射文件（命令稍有不同，看考windows版本Virtualbox的高级用户手册），注意请创建不同的映射文件，不要拿来在linux下创建的vmdk文件用，会死的很惨的。
+
+实践证明这个办法是彻底不用修改mbr，bcd 还有grub的。。。可以双物理磁盘上的系统互启动。。。
